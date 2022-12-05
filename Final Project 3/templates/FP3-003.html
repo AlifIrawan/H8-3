@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Final Project 3 Kelompok 3</title>
+</head>
+<body>
+<!-- 
+        <nav class="navbar fixed-top navbar-expand-lg" style="background-color: #F19023;">
+            <div class="container-fluid">
+                <a class="navbar-brand flex-grow-1" href="#">
+                    <img src="https://bhsing.fkip.untad.ac.id/wp-content/uploads/2021/10/logo-kampus-merdeka.png" alt="logo-kampus-merdeka" width="110" height="45">
+                </a>
+                <button class="navbar-toggler flex-grow-sm-1 flex-grow-0 me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse flex-grow-1 justify-content-center" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item me-3">
+                            <button class="btn">
+                                <a class="nav-link" href="#">Final Project 1</a>
+                            </button>
+                        </li>
+                        <li class="nav-item me-3">
+                            <button class="btn">
+                                <a class="nav-link" href="#">Final Project 2</a>
+                            </button>
+                        </li>
+                        <li class="nav-item me-3">
+                            <button class="btn">
+                                <a class="nav-link" href="#">Final Project 3</a>
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn">
+                                <a class="nav-link" href="#">Final Project 4</a>
+                            </button>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <button class="btn btn-light fw-semibold" type="submit">
+                                <a href="https://github.com/AlifIrawan/Deploy-first-flask" target="_blank" class="text-dark text-decoration-none">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" class="pr-5" alt="icon" width="40" height="40">
+                                    Repository
+                                </a>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </nav> 
+    -->
+
+    <div class="form">
+        <h1>Memprediksi Keselamatan pasien penyakit jantung!</h1>
+            
+        <form action="{{ url_for('predict') }}" method="post">
+            <input type="text" name="age" placeholder="Usia pasien" required="required">
+            <input type="text" name="creatinine_phosphokinase" placeholder="Jumlah creatinine phosphokinase" required="required">
+            <input type="text" name="ejection_fraction" placeholder="Jumlah ejection fraction" required="required">
+            <input type="text" name="platelets" placeholder="Jumlah platelets" required="required">
+            <input type="text" name="serum_creatinine" placeholder="Jumlah serum creatinine" required="required">
+            <input type="text" name="serum_sodium" placeholder="Jumlah serum sodium" required="required">
+            <input type="number" name="sex" placeholder="Jenis Kelamin" required="required" min="0" max="1">
+            <input type="number" name="smoking" placeholder="Merokok atau tidak" required="required" min="0" max="1">
+            
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        </form>
+            
+            <h5 class="message">{{ prediction_text }}</h5>
+    </div>
+</body>
+</html>
