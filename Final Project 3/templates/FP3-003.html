@@ -4,75 +4,159 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Final Project 3 Kelompok 3</title>
 </head>
 <body>
-<!-- 
-        <nav class="navbar fixed-top navbar-expand-lg" style="background-color: #F19023;">
-            <div class="container-fluid">
-                <a class="navbar-brand flex-grow-1" href="#">
-                    <img src="https://bhsing.fkip.untad.ac.id/wp-content/uploads/2021/10/logo-kampus-merdeka.png" alt="logo-kampus-merdeka" width="110" height="45">
-                </a>
-                <button class="navbar-toggler flex-grow-sm-1 flex-grow-0 me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse flex-grow-1 justify-content-center" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item me-3">
-                            <button class="btn">
-                                <a class="nav-link" href="#">Final Project 1</a>
-                            </button>
-                        </li>
-                        <li class="nav-item me-3">
-                            <button class="btn">
-                                <a class="nav-link" href="#">Final Project 2</a>
-                            </button>
-                        </li>
-                        <li class="nav-item me-3">
-                            <button class="btn">
-                                <a class="nav-link" href="#">Final Project 3</a>
-                            </button>
-                        </li>
-                        <li class="nav-item">
-                            <button class="btn">
-                                <a class="nav-link" href="#">Final Project 4</a>
-                            </button>
-                        </li>
-                    </ul>
-                    <form class="d-flex" role="search">
-                        <div class="d-grid gap-2 col-6 mx-auto">
-                            <button class="btn btn-light fw-semibold" type="submit">
-                                <a href="https://github.com/AlifIrawan/Deploy-first-flask" target="_blank" class="text-dark text-decoration-none">
-                                    <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" class="pr-5" alt="icon" width="40" height="40">
-                                    Repository
-                                </a>
-                            </button>
-                        </div>
-                    </form>
-                </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="https://bhsing.fkip.untad.ac.id/wp-content/uploads/2021/10/logo-kampus-merdeka.png" alt="logo-kampus-merdeka" width="110" height="45">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{{ url_for('index') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Final Project 1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Final Project 2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ url_for('final_project3') }}">Final Project 3</a>
+                </li>
+                </ul>
+                <form class="d-flex">
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button class="btn btn-outline-dark fw-semibold" type="submit">
+                            <a href="https://github.com/AlifIrawan/Deploy-first-flask" target="_blank" class="text-dark text-decoration-none">
+                                <img src="https://github.githubassets.com/images/modules/logos_page/Octocat.png" class="pr-5" alt="icon" width="45" height="40">
+                            </a>
+                            Repository
+                        </button>
+                    </div>
+                </form>
             </div>
-        </nav> 
-    -->
+        </div>
+    </nav>
 
-    <div class="form">
-        <h1>Memprediksi Keselamatan pasien penyakit jantung!</h1>
+    <div class="container-fluid bg-light">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center mt-4 fst-italic font-monospace">Memprediksi <mark>kematian akibat gagal jantung!</mark></h1>
+            </div>
+        </div>
+        
+        <div class="row d-flex justify-content-center">
             
-        <form action="{{ url_for('predict') }}" method="post">
-            <input type="text" name="age" placeholder="Usia pasien" required="required">
-            <input type="text" name="creatinine_phosphokinase" placeholder="Jumlah creatinine phosphokinase" required="required">
-            <input type="text" name="ejection_fraction" placeholder="Jumlah ejection fraction" required="required">
-            <input type="text" name="platelets" placeholder="Jumlah platelets" required="required">
-            <input type="text" name="serum_creatinine" placeholder="Jumlah serum creatinine" required="required">
-            <input type="text" name="serum_sodium" placeholder="Jumlah serum sodium" required="required">
-            <input type="number" name="sex" placeholder="Jenis Kelamin" required="required" min="0" max="1">
-            <input type="number" name="smoking" placeholder="Merokok atau tidak" required="required" min="0" max="1">
+            <div class="col-md-8 mt-5">
+
+                {% if prediction_text %}
+                    <div class="alert alert-info alert-dismissible fade show d-flex align-items-center" role="alert">
+                        Pasien&nbsp;<b>{{ prediction_text }}</b>&nbsp;dari penyakit jantung
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% else %}
+                    <div></div>
+                {% endif %}
+
+                <form action="{{ url_for('predict_fp3') }}" method="post">
+                    <!-- Age input -->
+                    <div class="mb-3">
+                        <label for="age" class="form-label">Usia Pasien :</label>
+                        <input type="text" name="age" required="required" class="form-control" id="age">
+                    </div>
+
+                    <!-- Anemia input -->
+                    <div class="mb-3">
+                        <label for="anaemia" class="form-label">Riwayat Anemia :</label>
+                        <select class="form-select" name="anaemia" id="anaemia">
+                            <option selected>-- Silahkan pilih salah satu --</option>
+                            <option value="0">Tidak ada</option>
+                            <option value="1">Ada</option>
+                        </select>
+                    </div>
+
+                    <!-- Diabetes input -->
+                    <div class="mb-3">
+                        <label for="diabetes" class="form-label">Riwayat Diabetes :</label>
+                        <select class="form-select" name="diabetes" id="diabetes">
+                            <option selected>-- Silahkan pilih salah satu --</option>
+                            <option value="0">Tidak ada</option>
+                            <option value="1">Ada</option>
+                        </select>
+                    </div>
+
+                    <!-- ejection_fraction input -->
+                    <div class="mb-3">
+                        <label for="ejection_fraction" class="form-label">Ejection Fraction pasien :</label>
+                        <input type="text" name="ejection_fraction" required="required" class="form-control" id="ejection_fraction" aria-describedby="ejection_fractionHelp">
+                        <div id="ejection_fractionHelp" class="form-text">Mulai dari 0 - 80.</div>
+                    </div>
+                    
+                    <!-- high_blood_pressure input -->
+                    <div class="mb-3">
+                        <label for="high_blood_pressure" class="form-label">Riwayat Darah Tinggi :</label>
+                        <select class="form-select" name="high_blood_pressure" id="high_blood_pressure">
+                            <option selected>-- Silahkan pilih salah satu --</option>
+                            <option value="0">Tidak ada</option>
+                            <option value="1">Ada</option>
+                        </select>
+                    </div>
+
+                    <!-- serum_sodium input -->
+                    <div class="mb-3">
+                        <label for="serum_sodium" class="form-label">Serum Sodium pasien :</label>
+                        <input type="text" name="serum_sodium" required="required" class="form-control" id="serum_sodium" aria-describedby="serum_sodiumHelp">
+                        <div id="serum_sodiumHelp" class="form-text">Mulai dari 0 - 148.</div>
+                    </div>
+
+                    <!-- sex input -->
+                    <div class="mb-3">
+                        <label for="sex" class="form-label">Jenis Kelamin :</label>
+                        <select class="form-select" name="sex" id="sex">
+                            <option selected>-- Silahkan pilih salah satu --</option>
+                            <option value="0">Pria</option>
+                            <option value="1">Wanita</option>
+                        </select>
+                    </div>
+
+                    <!-- smoking input -->
+                    <div class="mb-3">
+                        <label for="smoking" class="form-label">Riwayat Merokok :</label>
+                        <select class="form-select" name="smoking" id="smoking">
+                            <option selected>-- Silahkan pilih salah satu --</option>
+                            <option value="0">Tidak Merokok</option>
+                            <option value="1">Merokok</option>
+                        </select>
+                    </div>
+                    
+                    <div class="d-grid gap-2 d-md-block">
+                        <button type="submit" class="btn btn-primary btn-block btn-lg my-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Predict</button>
+                    </div>
+                </form>
+            </div>
+
             
-            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
-        </form>
-            
-            <h5 class="message">{{ prediction_text }}</h5>
+
+        <div class="row">
+            <div class="col-md-12">
+                <footer>
+                    <p class="text-center">&copy; Created <strong>by</strong> H8 Kelompok 03 2022</p>
+                </footer>
+            </div>
+        </div>
+
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
 </body>
 </html>

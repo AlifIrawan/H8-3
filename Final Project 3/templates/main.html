@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Dashboard</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="https://kampusmerdeka.kemdikbud.go.id/">
+                <img src="https://bhsing.fkip.untad.ac.id/wp-content/uploads/2021/10/logo-kampus-merdeka.png" alt="logo-kampus-merdeka" width="110" height="45">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Final Project 1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Final Project 2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('final_project3') }}">Final Project 3</a>
+                </li>
+                </ul>
+                <form class="d-flex">
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button class="btn btn-outline-dark fw-semibold" type="submit">
+                            <a href="#" target="_blank" class="text-dark text-decoration-none">
+                                <img src="https://github.githubassets.com/images/modules/logos_page/Octocat.png" class="pr-5" alt="icon" width="45" height="40">
+                            </a>
+                            Repository
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid bg-light">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center mt-4 fst-italic" style="font-family: monserrat;"><u>Meet our <mark>great Team</mark></u></h1>
+            </div>
+        </div>
+
+        <div class="row d-flex justify-content-evenly">
+            
+            <div class="col-md-3 mt-5">
+                <div class="card shadow p-3 mb-5 bg-body rounded animate__animated animate__backInLeft" style="width: 18rem;">
+                    <img src="{{ url_for('static', filename='asset/3.png') }}" class="card-img-top" alt="photo profile">
+                    <div class="card-body">
+                        <p class="card-text">Social Media :</p>
+                        <a href="https://www.linkedin.com/in/haikal-irawan/" class="btn btn-outline-primary rounded fa fa-linkedin-square" style="font-size:24px"></a>
+                        <a href="https://github.com/Alifirawan" class="btn btn-outline-dark rounded fa fa-github" style="font-size:24px"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 mt-5">
+                <div class="card shadow p-3 mb-5 bg-body rounded animate__animated animate__backInUp" style="width: 18rem;">
+                    <img src="{{ url_for('static', filename='asset/2-1.png') }}" class="card-img-top" alt="photo profile">
+                    <div class="card-body">
+                        <p class="card-text">Social Media :</p>
+                        <a href="https://www.linkedin.com/in/mely-sekhan/" class="btn btn-outline-primary rounded fa fa-linkedin-square" style="font-size:24px"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 mt-5">
+                <div class="card shadow p-3 mb-5 bg-body rounded animate__animated animate__backInRight" style="width: 18rem;">
+                    <img src="{{ url_for('static', filename='asset/1.png') }}" class="card-img-top" alt="photo profile">
+                    <div class="card-body">
+                        <p class="card-text">Social Media :</p>
+                        <a href="#" class="btn btn-outline-primary rounded fa fa-linkedin-square" style="font-size:24px"></a>
+                        <a href="#" class="btn btn-outline-dark rounded fa fa-github" style="font-size:24px"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <footer>
+                    <p class="text-center">&copy; Created <strong>by</strong> H8 Kelompok 03 2022</p>
+                </footer>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
